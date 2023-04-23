@@ -1,0 +1,63 @@
+---
+import Nav from '../components/nav/Nav.astro';
+
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="bg-deep-purple">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<main class="">
+      <Nav></Nav>
+      <div id="swup" class="transition-fade ml-40">
+        <slot />
+      </div>
+		</main>
+		<script src="https://unpkg.com/swup@3"></script>
+		<!-- <script type="module" src="/app.js"></script> -->
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--container-size: 500px
+	}
+
+	html.is-animating .transition-fade {
+		opacity: 0;
+	}
+
+	main {
+    display: grid;
+		/* grid-template-columns: .3fr 1fr; */
+		grid-template-columns: 1fr;
+		grid-template-rows: 80px 1fr;
+  }
+
+	.transition-fade {
+		transition: 0.8s;
+		opacity: 1;
+	}
+</style>
+
+<script>
+	import Swup from 'swup';
+  import SwupSlideTheme from '@swup/slide-theme';
+
+	const swup = new Swup({
+    plugins: [new SwupSlideTheme({
+			reversed: true
+		})]
+  });
+</script>
