@@ -18,22 +18,20 @@ const navItems = [
 ]
 ---
 
-<nav class="grid grid-cols-3 gap-0.5">
+<nav class="grid grid-cols-3 gap-0.5 xl:grid-rows-2">
   {navItems.map((item) => (
-    <a href={item.path} class="btn btn-1 min-h-full bg-purple flex items-center justify-center">
-      <span class="icon hidden lg:block" aria-hidden="true" set:html={item.icon}></span>
-      <p>{item.text}</p>
+    <a href={item.path} 
+        class="
+            min-h-full 
+            bg-purple 
+            bg-opacity-60 
+            hover:bg-opacity-70
+            flex 
+            items-center 
+            justify-center
+            xl:aspect-square">
+      <span class="icon hidden xl:block" aria-hidden="true" set:html={item.icon}></span>
+      <p class="xl:hidden font-display text-lg text-[white] opacity-60">{item.text}</p>
     </a>
   ))}
-  <!-- <button class="btn btn-2 bg-purple">
-    <span class="icon">
-      
-    </span>
-  </button>
-  <button class="btn btn-3 bg-purple">
-    <span class="icon">
-      
-    </span>
-  </button> -->
 </nav>
-

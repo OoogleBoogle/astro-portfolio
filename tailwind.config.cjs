@@ -6,6 +6,10 @@ module.exports = {
 			'deep-purple': '#14081F',
 			'purple': '#60457A',
 		},
+		fontFamily: {
+			'display': ['Comfortaa', 'cursive'],
+			'sans': ['Raleway', 'sans-serif'],
+		},
 		extend: {},
 	},
 	plugins: [],
