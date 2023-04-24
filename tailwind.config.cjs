@@ -5,7 +5,8 @@ module.exports = {
 		colors: {
 			'deep-purple': '#14081F',
 			'purple': '#60457A',
-			'almost-white': '#eed6fe'
+			'almost-white': '#eed6fe',
+			'light-purple': '#A785C7',
 		},
 		fontFamily: {
 			'display': ['Comfortaa', 'cursive'],
