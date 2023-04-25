@@ -40,19 +40,19 @@ const navItems = [
   @media (min-width: 1280px) {
     [aria-current='page'] {
       box-shadow: 0 0 1px 1px #eed6fe;
-      transition: box-shadow 0.3s linear;
     }
 
     .btn {
       position: relative;
       z-index: 1;
       cursor: pointer;
+      transition: box-shadow 0.5s ease-in-out;
     }
 
     .btn::before {
       background: radial-gradient(
         300px circle at var(--mouse-x) var(--mouse-y),
-        rgba(255,255,266, 0.15),
+        rgba(255,255,266, 0.2),
         transparent 40%
       );
       position: absolute;
@@ -93,7 +93,7 @@ const navItems = [
     .icon svg {
       position: relative;
       z-index: 4;
-      opacity: .5;
+      opacity: .7;
       transition: opacity 0.6s ease-in-out;
       pointer-events: none;
     }
