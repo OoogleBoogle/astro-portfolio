@@ -5,6 +5,10 @@ export interface Props {
 	title: string;
 }
 
+const currentPage = Astro.url.pathname;
+
+console.log(`currentPage`, currentPage);
+
 const { title } = Astro.props;
 ---
 

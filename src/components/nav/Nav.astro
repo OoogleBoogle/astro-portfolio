@@ -19,14 +19,20 @@ const navItems = [
 ---
 
 <nav class="grid grid-cols-3 gap-0.5 xl:grid-rows-[repeat(2,min-content)]">
-  {navItems.map((item, i) => (
-    <a href={item.path}
-        class={`btn btn-${i + 1} min-h-full bg-purple bg-opacity-60 hover:bg-opacity-70 flex items-center justify-center xl:aspect-square xl:origin-center xl:rotate-45 xl:relative xl:bg-opacity-30 xl:hover:bg-opacity-30`}>
-      <span class="icon hidden xl:block xl:-rotate-45 z-10" aria-hidden="true" set:html={item.icon}></span>
-      <p class="xl:hidden font-display text-lg text-almost-white">{item.text}</p>
-    </a>
-  ))}
-  <nav-text class="hidden xl:block text-light-purple font-sans text-lg"></nav-text>
+  {navItems.map((item, i) => {
+    return (
+      <a href={item.path}
+          class={`btn btn-${i + 1} min-h-full bg-purple bg-opacity-60 hover:bg-opacity-70 flex items-center justify-center xl:aspect-square xl:origin-center xl:rotate-45 xl:relative xl:bg-opacity-30 xl:hover:bg-opacity-30`}>
+        <span class="icon hidden xl:block xl:-rotate-45 z-10" aria-hidden="true" set:html={item.icon}></span>
+        <p class="xl:hidden font-display text-lg text-almost-white">{item.text}</p>
+      </a>
+    )
+  })}
+  <nav-text class="hidden xl:block" data-item-names={navItems.map(item => item.text)}>
+    {navItems.map((item) => (
+      <p class="text-light-purple font-sans text-xl opacity-0 transition-all translate-y-4 duration-300 absolute inset-x-0 top-20 text-center">{item.text}</p>
+    ))}
+  </nav-text>
 </nav>
 
 <style is:global>
@@ -85,12 +91,19 @@ const navItems = [
       transition: opacity 0.6s ease-in-out;
       pointer-events: none;
     }
+
+    nav-text {
+      position: relative;
+      grid-area: 2 / 2;
+    }
   }
 </style>
 
 <script>
   const btns = document.querySelectorAll('.btn') as NodeListOf<HTMLLinkElement>;
   const navTextEl = document.querySelector('nav-text') as HTMLElement;
+  const desktop = "(min-width: 1280px)";
+  setAriaCurrent();
 
   function getRotatedMousePosition(event: MouseEvent, element: HTMLLinkElement) {
     const rect = element.getBoundingClientRect();
@@ -106,36 +119,68 @@ const navItems = [
     return { x: rotatedX, y: rotatedY };
   }
 
+  function setAriaCurrent() {
+    const existing = document.querySelector('[aria-current="page"]');
+    const path = window.location.pathname;
+    const current = document.querySelector(`[href="${path}"]`);
+
+    if (existing) {
+      existing.removeAttribute('aria-current');
+    }
+
+    current?.setAttribute('aria-current', 'page');
+  }
+
+  document.addEventListener('swup:pageView', () => {
+    setAriaCurrent();
+  });
+
   for (const btn of btns) {
     btn.addEventListener('mousemove', (event) => {
-      const position = getRotatedMousePosition(event, btn);
-      const currentTarget = event.currentTarget as HTMLLinkElement;
-      const target = event?.target as HTMLElement;
+      if (window.matchMedia(desktop).matches) {
+        const position = getRotatedMousePosition(event, btn);
+        const currentTarget = event.currentTarget as HTMLLinkElement;
+        const target = event?.target as HTMLElement;
 
-      navTextEl.setAttribute('text', target?.closest('a').textContent.trim());
+        const parentLink = target?.closest('a');
+        if (parentLink) {
+          navTextEl.setAttribute('text', parentLink.textContent?.trim() || '');
+        }
 
-      if (currentTarget) {
-        currentTarget.style.setProperty('--mouse-x', position.x + 'px');
-        currentTarget.style.setProperty('--mouse-y', position.y + 'px');
+        if (currentTarget) {
+          currentTarget.style.setProperty('--mouse-x', position.x + 'px');
+          currentTarget.style.setProperty('--mouse-y', position.y + 'px');
+        }
       }
     });
 
     btn.addEventListener('mouseleave', () => {
-      navTextEl.setAttribute('text', '');
+      if (window.matchMedia(desktop).matches) {
+        navTextEl.setAttribute('text', '');
+      }
     })
   }
 
   class NavText extends HTMLElement {
-    // constructor() {
-    //   super();
-    //   console.log('ELLO');
-    // }
+    private navItemNames = this.dataset.itemNames?.split(',') as string[];
+    private navItemText = this.querySelectorAll('p');
 
     static get observedAttributes() {return ['text']}
 
     attributeChangedCallback(name: string, oldVal: string, newVal: string) {
       if (newVal !== oldVal) {
-        this.textContent = newVal;
+        const newItem = this.navItemText[this.navItemNames.indexOf(newVal)];
+        const oldItem = this.navItemText[this.navItemNames.indexOf(oldVal)];
+
+        if (oldItem) {
+          oldItem.classList.add('opacity-0');
+          oldItem.classList.add('translate-y-4');
+        }
+
+        if (newItem) {
+          newItem.classList.remove('opacity-0');
+          newItem.classList.remove('translate-y-4');
+        }
       }
     }
   }
