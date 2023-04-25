@@ -50,10 +50,14 @@ const { title } = Astro.props;
 <script>
 	import Swup from 'swup';
   import SwupSlideTheme from '@swup/slide-theme';
+	import SwupA11yPlugin from '@swup/a11y-plugin';
 
 	const swup = new Swup({
-    plugins: [new SwupSlideTheme({
-			reversed: true
-		})]
+    plugins: [
+			new SwupSlideTheme({
+				reversed: true
+			}),
+      new SwupA11yPlugin()
+		]
   });
 </script>

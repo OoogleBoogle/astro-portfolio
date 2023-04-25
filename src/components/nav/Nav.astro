@@ -22,7 +22,8 @@ const navItems = [
   {navItems.map((item, i) => {
     return (
       <a href={item.path}
-          class={`btn btn-${i + 1} min-h-full bg-purple bg-opacity-60 hover:bg-opacity-70 flex items-center justify-center xl:aspect-square xl:origin-center xl:rotate-45 xl:relative xl:bg-opacity-30 xl:hover:bg-opacity-30`}>
+          class={`btn btn-${i + 1} min-h-full bg-purple bg-opacity-60 hover:bg-opacity-70 flex items-center justify-center xl:aspect-square xl:origin-center xl:rotate-45 xl:relative xl:bg-opacity-30 xl:hover:bg-opacity-30`}
+          title={item.text}>
         <span class="icon hidden xl:block xl:-rotate-45 z-10" aria-hidden="true" set:html={item.icon}></span>
         <p class="xl:hidden font-display text-lg text-almost-white">{item.text}</p>
       </a>
@@ -37,6 +38,11 @@ const navItems = [
 
 <style is:global>
   @media (min-width: 1280px) {
+    [aria-current='page'] {
+      box-shadow: 0 0 1px 1px #eed6fe;
+      transition: box-shadow 0.3s linear;
+    }
+
     .btn {
       position: relative;
       z-index: 1;

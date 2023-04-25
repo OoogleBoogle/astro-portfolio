@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@astrojs/tailwind": "^3.1.1",
+    "@swup/a11y-plugin": "^3.0.0",
     "@swup/overlay-theme": "^1.1.1",
     "@swup/slide-theme": "^1.0.5",
     "astro": "^2.3.0",
