@@ -1,10 +1,31 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Picture } from "astro-imagetools/components";
+
+const projects = [
+  {
+    siteName: 'Google Ads',
+    link: 'https://ads.google.com',
+    title: "Go to ads.google.com",
+    image: '/images/gads.png',
+    copy: "Devised the underlying framework that statically renders native Web Components at build time, allowing for an encapsulated workflow and uniform design across sites under the same umbrella. Also, assisted in the general oversight and helping out other globally located developers.",
+  },
+  {
+    siteName: 'Google for Small Business - 2019',
+    link: "https://blog.google/outreach-initiatives/small-business/google-for-small-business/",
+    title: "Blog page for the original launch of Google for Small Business",
+    image: '/images/g4sb.png',
+    copy: "Originally launched in 2019, localized in multiple countries/languages, and featured in several online publications. As one of only three developers we built an app-like experience, where using user input and google maps data produced personalized product offerings. Created using almost 40 statically rendered page sections and AngularJS for interactivity."
+  }
+]
 ---
 
-
 <Layout title="Projects page">
-  <div class="max-w-screen-xl m-auto">
-    <h1 class="text-xl mb-10 mt-10 font-display text-almost-white">PROJECTS PAGE</h1>
-  </div>
+  {projects.map((project) => (
+    <section class="mb-20">
+      <a class="text-almost-white text-4xl underline underline-offset-8 hover:no-underline mb-10 block" href={project.link} title={project.title} target="_blank" rel="noopener noreferrer">{project.siteName}</a>
+      <Picture src={project.image} alt="" format={["avif", "webp", "jpg"]} quality={80} loading="lazy" />
+      <p class="text-light-purple my-5 text-lg">{project.copy}</p>
+    </section>
+  ))}
 </Layout>
