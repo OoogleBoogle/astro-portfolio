@@ -20,7 +20,7 @@ const navItems = [
 const navTextAnimatedClasses = ['opacity-0', 'translate-y-4', 'scale-50'];
 ---
 
-<nav class="grid grid-cols-3 gap-0.5 xl:grid-rows-[repeat(2,min-content)]">
+<nav class="grid grid-cols-3 gap-0.5 xl:grid-rows-[repeat(2,min-content)] xl:pt-36 sticky">
   {navItems.map((item, i) => {
     return (
       <a href={item.path}

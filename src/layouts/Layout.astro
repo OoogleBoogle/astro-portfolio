@@ -23,14 +23,15 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<main class="grid grid-cols-1 grid-rows-[80px_1fr] xl:grid-cols-[450px_1fr] xl:pt-32 max-w-screen-xl m-auto">
+		<main class="grid grid-cols-1 grid-rows-[80px_1fr] xl:grid-cols-[450px_1fr] max-w-screen-xl m-auto h-screen overflow-hidden">
       <Nav></Nav>
-      <div id="swup" class="transition-fade px-8 sm:px-20 md:px-32 xl:px-10 py-20 xl:py-10">
-        <slot />
+      <div id="swup" class="main-content transition-fade h-screen">
+				<div class="px-8 sm:px-20 md:px-32 xl:px-10 py-32 xl:py-36 h-screen overflow-scroll">
+					<slot />
+				</div>
       </div>
 		</main>
 		<script src="https://unpkg.com/swup@3"></script>
-		<!-- <script type="module" src="/app.js"></script> -->
 	</body>
 </html>
 
@@ -42,6 +43,29 @@ const { title } = Astro.props;
 	.transition-fade {
 		transition: 0.8s;
 		opacity: 1;
+	}
+
+	.main-content::before,
+	.main-content::after {
+		position: absolute;
+		content: '';
+		height: 120px;
+		width: 100%;
+		background: linear-gradient(to bottom, #14081F 10%, transparent);
+		top: 0px;
+		display: block;
+	}
+
+	.main-content::after {
+		background: linear-gradient(to top, #14081F 10%, transparent);
+		top: unset;
+		bottom: 80px;
+	}
+
+	@media (min-width: 1280px) {
+		.main-content::after {
+			bottom: 0;
+		}
 	}
 </style>
 
