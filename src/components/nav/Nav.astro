@@ -16,6 +16,8 @@ const navItems = [
     icon: `<svg height="50" viewBox="0 0 32 32" width="50" xmlns="http://www.w3.org/2000/svg"><path d="m28 4v26h-21c-1.657 0-3-1.343-3-3s1.343-3 3-3h19v-24h-20c-2.2 0-4 1.8-4 4v24c0 2.2 1.8 4 4 4h24v-28z"/><path d="m7.002 26c-.001 0-.001 0-.002 0-.552 0-1 .448-1 1s.448 1 1 1h.002 18.997v-2z"/></svg>`
   }
 ]
+
+const navTextAnimatedClasses = ['opacity-0', 'translate-y-4', 'scale-50'];
 ---
 
 <nav class="grid grid-cols-3 gap-0.5 xl:grid-rows-[repeat(2,min-content)]">
@@ -29,9 +31,9 @@ const navItems = [
       </a>
     )
   })}
-  <nav-text class="hidden xl:block" data-item-names={navItems.map(item => item.text)}>
+  <nav-text class="hidden xl:block" data-item-names={navItems.map(item => item.text)} data-animated-classes={navTextAnimatedClasses}>
     {navItems.map((item) => (
-      <p class="text-light-purple font-sans text-xl opacity-0 transition-all translate-y-4 duration-300 absolute inset-x-0 top-20 text-center">{item.text}</p>
+      <p class:list={['text-light-purple', 'font-sans', 'text-xl', 'transition-all', 'duration-300', 'absolute', 'inset-x-0', 'top-20', 'text-center', navTextAnimatedClasses]}>{item.text}</p>
     ))}
   </nav-text>
 </nav>
@@ -170,6 +172,7 @@ const navItems = [
   class NavText extends HTMLElement {
     private navItemNames = this.dataset.itemNames?.split(',') as string[];
     private navItemText = this.querySelectorAll('p');
+    private animatedClasses = this.dataset.animatedClasses?.split(',') as string[];
 
     static get observedAttributes() {return ['text']}
 
@@ -179,13 +182,11 @@ const navItems = [
         const oldItem = this.navItemText[this.navItemNames.indexOf(oldVal)];
 
         if (oldItem) {
-          oldItem.classList.add('opacity-0');
-          oldItem.classList.add('translate-y-4');
+          oldItem.classList.add(...this.animatedClasses);
         }
 
         if (newItem) {
-          newItem.classList.remove('opacity-0');
-          newItem.classList.remove('translate-y-4');
+          newItem.classList.remove(...this.animatedClasses);
         }
       }
     }

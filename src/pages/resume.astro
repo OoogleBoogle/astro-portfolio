@@ -1,10 +1,54 @@
 ---
 import Layout from "../layouts/Layout.astro"
 
+const jobs = [
+  {
+    title: "Technical Lead - Supervising Senior Consultant",
+    company: "SiaXperience",
+    dates: "Feb 2023 - Present",
+    location: "San Francisco Bay Area & Bethesda, MD",
+    tasks: [
+      "Project estimating, project scheduling & tracking, customer interaction and management, implementation planning in large organizations",
+      "Delivering technology and business application solutions in a large-scale, multi-platform systems environment",
+      "Ensuring team is delivering best-in-class products and solutions within constraints dictated by clients",
+      "Participating in the proof-of-concept activities to evaluate the benefits and technical and commercial feasibility of the solutions for broader deployment",
+      "Problem solving and recommendations making for better technical alternatives and better ways of working",
+      "Collaboration with stakeholders, functional owners, and subject matter experts to interpret and articulate business needs and define performance objectives",
+      "Learning of business processes and working with business partners at different levels within the organization",
+      "Building trust and providing technical thought leadership to guide clients in technical direction",
+      "Leading within project teams, providing coaching, and supporting across projects technical guidance and their learning and career direction"
+    ]
+  },
+  {
+    title: "Software Engineer -> Senior Software Engineer",
+    dates: "Sep 2016 — Feb 2023",
+    company: "R/GA @ Google",
+    location: "San Francisco",
+    tasks: [
+      "Build, maintain and take ownership of many of Google's sites. Including Google for Small Business, Google Ads, Google My Business, Google Assistant, Duo, Allo, and Google's Privacy Policy sites.",
+      "Be a point of contact for more junior colleges, as well as clients, on all aspects of the build process, as well as progress updates, code quality, and feasibility of features within a given timeframe.",
+      "Assess the impact of new features and provide guidance on complexity and time to complete.",
+      "Quickly familiarized with Google's proprietary tooling, as well as standard versions of (but not limited to) Django/Jinja, AngularJS, Python, GCP and App Engine, and Closure Compiler.",
+      "Gained 'HTML/CSS Readability', Google's rating of ability, within the first 6 months and therefore regularly conduct code reviews for the team, internal Googlers, and other agencies in US, India, Japan, and Europe.",
+      "Work on adhoc bug fixes as required, and constantly assess sites for performance and visual bugs and provide, or delegate, fixes swiftly."
+    ]
+  },
+]
 ---
 
-<Layout title="resume page">
-  <div class="max-w-screen-xl m-auto">
-    <h1 class="text-xl mb-10 mt-10 font-display text-almost-white">RESUME PAGE</h1>
-  </div>
+<Layout title="Simon Attfield: Resume">
+  <h2 class="text-almost-white text-5xl font-display mb-10">Employment History</h2>
+  {jobs.map((job) => (
+    <p class="text-light-purple font-sans text-xl">
+      <span class="block text-almost-white">{job.title}</span>
+      <span class="block">{job.company}</span>
+      <span class="block">{job.location}</span>
+    </p>
+    <p class="text-light-purple font-sans text-lg">{job.dates}</p>
+    <ul class="mt-5 mb-10 list-disc list-outside pl-5" role="list">
+      {job.tasks && job.tasks.map((task) => (
+        <li class="text-almost-white font-sans mb-3">{task}</li>
+      ))}
+    </ul>
+  ))}
 </Layout>
