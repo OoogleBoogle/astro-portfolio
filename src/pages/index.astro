@@ -1,24 +1,32 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const socialLinksStyle = "fill-almost-white group-hover:fill-light-purple transition-[fill] group-focus-within:fill-light-purple";
 ---
 
 <Layout title="Simon Attfield" description="Homepage of simonattfield.com">
 	<section class="mb-10">
     <h1 class="text-8xl font-display text-light-purple mb-10">Hello, <span class="text-almost-white block">I'm Simon</span></h1>
-    <p class="text-light-purple text-3xl mb-10 font-sans">A front end web developer based in the D.C metro&nbsp;area.</p>
-    <p class="text-light-purple text-xl font-sans font-light mb-5 leading-8">
-      With over 6 years experience working for R/GA at Google on several of
-      their largest marketing sites, I've developed a passion for clean, readable, and
-      maintainable code with a focus on accessibility and sensible user interactions. With
-      a keen eye for detail and excellent communication skills, I pride myself on easily
-      developing strong working relationships with clients and colleagues alike, with a
-      confident, outgoing, enthusiastic and approachable attitude.
-    </p>
+    <p class="text-light-purple text-3xl mb-10 font-sans">A front end web developer based in the D.C. Metro&nbsp;area.</p>
     <p class="text-light-purple text-xl font-sans font-light leading-8">
       Proficient in Typescript/Javascript, Web Components, HTML/CSS, AngularJS, Nuxt/Vue,
       and most recently Next.JS with headless Wordpress and Tailwind CSS (and let's not forget
       Astro, which I used for this site). I try to keep my eyes on emerging trends, and encourage experimentation,
       while always championing the "right tool for the job".
+    </p>
+    <div class="group relative inline-block cursor-pointer my-8">
+      <a href="/projects/" class="text-almost-white text-xl font-sans font-light leading-8 py-3 px-5 inline-block bg-purple rounded relative overflow-hidden">
+        See some of my work
+        <span class="absolute top-0 -left-[120%] h-full w-full z-20 -skew-x-[20deg] block transform bg-gradient-to-r from-transparent to-almost-white opacity-30 group-hover:animate-shine group-focus-within:animate-shine"></span>
+      </a>
+    </div>
+    <p class="text-light-purple text-xl font-sans font-light mb-5 leading-8">
+      With over 6 years experience working for R/GA at Google on several of
+      their largest marketing sites, I"ve developed a passion for clean, readable, and
+      maintainable code with a focus on accessibility and user-centric interactions. With
+      a keen eye for detail and excellent communication skills, I pride myself on easily
+      developing strong working relationships with clients and colleagues alike, with a
+      confident, outgoing, enthusiastic and approachable attitude.
     </p>
   </section>
   <section class="mb-10">
@@ -27,13 +35,13 @@ import Layout from '../layouts/Layout.astro';
     </p>
     <div class="flex gap-8 my-5">
       <a href="https://www.linkedin.com/in/simattfield/" title="Linkedin profile" target="_blank" rel="noopener noreferrer" class="group">
-        <svg height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg" class="fill-almost-white group-hover:fill-light-purple transition-[fill]"><path d="m29 0h-26c-1.65 0-3 1.35-3 3v26c0 1.65 1.35 3 3 3h26c1.65 0 3-1.35 3-3v-26c0-1.65-1.35-3-3-3zm-17 26h-4v-14h4zm-2-16c-1.106 0-2-.894-2-2s.894-2 2-2 2 .894 2 2-.894 2-2 2zm16 16h-4v-8c0-1.106-.894-2-2-2s-2 .894-2 2v8h-4v-14h4v2.481c.825-1.131 2.087-2.481 3.5-2.481 2.488 0 4.5 2.238 4.5 5z"/></svg>
+        <svg height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg" class={socialLinksStyle}><path d="m29 0h-26c-1.65 0-3 1.35-3 3v26c0 1.65 1.35 3 3 3h26c1.65 0 3-1.35 3-3v-26c0-1.65-1.35-3-3-3zm-17 26h-4v-14h4zm-2-16c-1.106 0-2-.894-2-2s.894-2 2-2 2 .894 2 2-.894 2-2 2zm16 16h-4v-8c0-1.106-.894-2-2-2s-2 .894-2 2v8h-4v-14h4v2.481c.825-1.131 2.087-2.481 3.5-2.481 2.488 0 4.5 2.238 4.5 5z"/></svg>
       </a>
       <a href="https://github.com/OoogleBoogle" title="Github profile" target="_blank" rel="noopener noreferrer" class="group">
-        <svg height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg" class="fill-almost-white group-hover:fill-light-purple transition-[fill]"><path d="m16 .395c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182.8.148 1.094-.347 1.094-.77 0-.381-.015-1.642-.022-2.979-4.452.968-5.391-1.888-5.391-1.888-.728-1.849-1.776-2.341-1.776-2.341-1.452-.993.11-.973.11-.973 1.606.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33.143-1.034.558-1.74 1.016-2.14-3.554-.404-7.29-1.777-7.29-7.907 0-1.747.625-3.174 1.649-4.295-.166-.403-.714-2.03.155-4.234 0 0 1.344-.43 4.401 1.64 1.276-.355 2.645-.532 4.005-.539 1.359.006 2.729.184 4.008.539 3.054-2.07 4.395-1.64 4.395-1.64.871 2.204.323 3.831.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895.574.497 1.085 1.47 1.085 2.963 0 2.141-.019 3.864-.019 4.391 0 .426.288.925 1.099.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"/></svg>
+        <svg height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg" class={socialLinksStyle}><path d="m16 .395c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182.8.148 1.094-.347 1.094-.77 0-.381-.015-1.642-.022-2.979-4.452.968-5.391-1.888-5.391-1.888-.728-1.849-1.776-2.341-1.776-2.341-1.452-.993.11-.973.11-.973 1.606.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33.143-1.034.558-1.74 1.016-2.14-3.554-.404-7.29-1.777-7.29-7.907 0-1.747.625-3.174 1.649-4.295-.166-.403-.714-2.03.155-4.234 0 0 1.344-.43 4.401 1.64 1.276-.355 2.645-.532 4.005-.539 1.359.006 2.729.184 4.008.539 3.054-2.07 4.395-1.64 4.395-1.64.871 2.204.323 3.831.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895.574.497 1.085 1.47 1.085 2.963 0 2.141-.019 3.864-.019 4.391 0 .426.288.925 1.099.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"/></svg>
       </a>
       <a href="mailto:simattfield@gmail.com" target="_blank" rel="noopener noreferrer" class="group">
-        <svg height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg" class="fill-almost-white group-hover:fill-light-purple transition-[fill]"><path d="m26.667 0h-21.333c-2.934 0-5.334 2.4-5.334 5.334v21.332c0 2.936 2.4 5.334 5.334 5.334h21.333c2.934 0 5.333-2.398 5.333-5.334v-21.332c0-2.934-2.399-5.334-5.333-5.334zm0 4c.25 0 .486.073.688.198l-11.355 9.388-11.355-9.387c.202-.125.439-.198.689-.198h21.333zm-21.333 24c-.06 0-.119-.005-.178-.013l7.051-9.78-.914-.914-7.293 7.293v-19.098l12 14.512 12-14.512v19.098l-7.293-7.293-.914.914 7.051 9.78c-.058.008-.117.013-.177.013z"/></svg>
+        <svg height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg" class={socialLinksStyle}><path d="m26.667 0h-21.333c-2.934 0-5.334 2.4-5.334 5.334v21.332c0 2.936 2.4 5.334 5.334 5.334h21.333c2.934 0 5.333-2.398 5.333-5.334v-21.332c0-2.934-2.399-5.334-5.333-5.334zm0 4c.25 0 .486.073.688.198l-11.355 9.388-11.355-9.387c.202-.125.439-.198.689-.198h21.333zm-21.333 24c-.06 0-.119-.005-.178-.013l7.051-9.78-.914-.914-7.293 7.293v-19.098l12 14.512 12-14.512v19.098l-7.293-7.293-.914.914 7.051 9.78c-.058.008-.117.013-.177.013z"/></svg>
       </a>
     </div>
   </section>

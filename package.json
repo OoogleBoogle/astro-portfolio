@@ -16,6 +16,7 @@
     "@swup/head-plugin": "^1.3.0",
     "@swup/overlay-theme": "^1.1.1",
     "@swup/slide-theme": "^1.0.5",
+    "@vercel/analytics": "^1.0.0",
     "astro": "^2.3.0",
     "astro-compress": "^1.1.42",
     "astro-imagetools": "^0.8.1",

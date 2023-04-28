@@ -3,6 +3,7 @@ import Nav from '../components/nav/Nav.astro';
 
 export interface Props {
 	title: string;
+	description: string;
 }
 
 const currentPage = Astro.url.pathname;
@@ -101,7 +102,9 @@ const { title, description } = Astro.props;
   import SwupSlideTheme from '@swup/slide-theme';
 	import SwupA11yPlugin from '@swup/a11y-plugin';
 	import SwupHeadPlugin from '@swup/head-plugin';
+	import {inject} from '@vercel/analytics';
 
+	inject();
 
 	const swup = new Swup({
     plugins: [
