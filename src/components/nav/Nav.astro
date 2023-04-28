@@ -24,7 +24,7 @@ const navTextAnimatedClasses = ['opacity-0', 'translate-y-4', 'scale-50'];
   {navItems.map((item, i) => {
     return (
       <a href={item.path}
-          class={`btn btn-${i + 1} min-h-full bg-purple bg-opacity-60 hover:bg-opacity-70 flex items-center justify-center xl:aspect-square xl:origin-center xl:rotate-45 xl:relative xl:bg-opacity-30 xl:hover:bg-opacity-30`}
+          class={`btn btn-${i + 1} min-h-full bg-purple bg-opacity-60 hover:bg-opacity-70 flex items-center justify-center xl:aspect-square xl:origin-center xl:rotate-45 xl:relative xl:bg-opacity-30 xl:hover:bg-opacity-30 aria-[current=page]:bg-opacity-100 xl:aria-[current=page]:bg-opacity-50`}
           title={item.text}>
         <span class="icon hidden xl:block xl:-rotate-45 z-10" aria-hidden="true" set:html={item.icon}></span>
         <p class="xl:hidden font-display text-lg text-almost-white">{item.text}</p>
@@ -33,7 +33,7 @@ const navTextAnimatedClasses = ['opacity-0', 'translate-y-4', 'scale-50'];
   })}
   <nav-text class="hidden xl:block" data-item-names={navItems.map(item => item.text)} data-animated-classes={navTextAnimatedClasses}>
     {navItems.map((item) => (
-      <p class:list={['text-light-purple', 'font-sans', 'text-xl', 'transition-all', 'duration-300', 'absolute', 'inset-x-0', 'top-20', 'text-center', navTextAnimatedClasses]}>{item.text}</p>
+      <p class:list={['text-light-purple', 'font-sans', 'text-xl', 'transition-opacity', 'duration-300', 'absolute', 'inset-x-0', 'top-20', 'text-center', navTextAnimatedClasses]}>{item.text}</p>
     ))}
   </nav-text>
 </nav>
