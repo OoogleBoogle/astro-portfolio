@@ -1,6 +1,6 @@
 ## [Google for Small Business - 2019](https://blog.google/outreach-initiatives/small-business/google-for-small-business/)
 
-![Screenshot of the Google for Small Smallbusinss homepage from it's initial
+![Screenshot of the Google for Small Business homepage from it's initial
 launch in
 2019](/images/g4sb.png
 "Go to a blog post related to the initial launch")
@@ -8,6 +8,19 @@ launch in
 The original version of this site has long since passed, but a gif of the site
 flow still exists in the blog post linked above.
 
-We were tasked with creating a site that would contain an app-like experience
-where users could add details about there business and be provided a series of
-product recomendations that could help them grow.
+We were tasked with creating a site that would launch on International Small
+Business Day. It would contain an app-like experience where, during a series of
+questions, users could add details about there business and be provided a series
+of product recommendations that could help them grow.
+
+The main obstacle was that all sections during the question every question and
+recommendation needed to be static rendered ahead of time, which amounted to ~40
+individual product recommendations. To prevent bloating the DOM, I devised a way to compile all
+questions and outcomes as an AngularJS template file which was then only
+requested is a user decided to take that route, which was loaded into the Angular's
+template cache.
+
+The site was initially launched in the US and Brazil, with other locales added
+over time. It was featured in several online publications, such as [AdWeek](https://www.adweek.com/performance-marketing/international-small-business-day-is-a-big-thing-at-google/),
+[TechCrunch](https://techcrunch.com/2019/06/27/google-for-small-business/), and [smallbiztrends.com](https://smallbiztrends.com/2019/07/google-for-small-business.html) and
+was generally well received.
