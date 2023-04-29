@@ -1,8 +1,9 @@
+import { Picture } from "astro-imagetools/components";
+
 ## [Elevance Health](https://www.elevancehealth.com/annual-report/2022/index.html)
 
-![Screenshot of Elevance Health's 2022 annual report
-homepage](/images/elevance.png "Screenshot of Elevance Health's 2022 annual report
-homepage")
+<Picture src="/images/elevance.png" alt="Screenshot of Elevance Health's 2022 annual report
+homepage" loading="lazy" />
 
 The brief was straightforward, however the timeline was tight and I was the only
 dev on the project. It was also important to bring the existing code up to date,
@@ -12,7 +13,7 @@ Leveraging Nuxt.js, I was able to rebuild the whole site from scratch in just
 two weeks. This included a Report Builder which allows a user to select
 individual report sections and download them as a single PDF. The previous
 version required jQuery and would send a query to a backend php script to pull
-and compile the PDF on a separate server. I revamped this to to build the PDF's
+and compile the PDF on a separate server. I revamped this to build the PDF's
 in the front end, allowing the individual PDF sections to be housed in the main
 codebase to improve maintainability as well as remove the jQuery dependency. It
 also compiled to less code in the front end and surprisingly low latency.

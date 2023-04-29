@@ -1,13 +1,16 @@
+import { Picture } from "astro-imagetools/components";
+
 ## [Google Ads](https://ads.google.com)
 
-![Screenshot of the Google Ads homepage](/images/gads.png "Screenshot of the Google Ads homepage")
+<Picture src="/images/gads.png" alt="Screenshot of the
+Google Ads homepage" placeholder="none" />
 
 There are many sites within Google that share brand identity, and for this they
 have a rather excellent internal JavaScript framework and static site builder
 that does the majority of the heavy lifting. However, issues arose when a design
 required changes to the provided components as there was no way to share these
 easily. The team was tasked with creating a UI Library that could be easily
-shared around, but without the use of *any* external frameworks.
+shared around, but without the use of *any*  external frameworks.
 
 I took some inspiration from Lit.js and created a framework, installed via NPM,
 that sat on top of the internal tools. When provided with a JSON file of a set structure, it would
