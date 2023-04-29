@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-// import { Picture } from "astro-imagetools/components";
+import SocialLinks from '../components/SocialLinks.astro';
 import {Content as Gads} from '../components/projects/google-ads.mdx';
 import {Content as G4SB} from '../components/projects/g4sb.mdx';
 import {Content as Elevance} from '../components/projects/elevance.mdx';
@@ -14,6 +14,9 @@ const projects = [
 
 <Layout title="Simon Attfield: Projects" description="See a shortlist of past projects" canonical="https://www.simonattfield.com/projects/">
   <h1 class="text-almost-white text-6xl font-display mb-10">Projects</h1>
+  <div class="xl:hidden">
+    <SocialLinks />
+  </div>
   <div class="prose prose-lg prose-a:text-almost-white prose-h2:text-4xl prose-p:text-light-purple mb-20">
     {projects.map((Project) => <Project />)}
   </div>

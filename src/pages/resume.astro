@@ -1,5 +1,6 @@
 ---
-import Layout from "../layouts/Layout.astro"
+import Layout from "../layouts/Layout.astro";
+import SocialLinks from "../components/SocialLinks.astro";
 
 const jobs = [
   {
@@ -38,6 +39,9 @@ const jobs = [
 
 <Layout title="Simon Attfield: Resume" description="Quick look at current and previous experience." canonical="https://www.simonattfield.com/resume/">
   <h1 class="text-almost-white text-5xl font-display mb-10">Employment History</h1>
+  <div class="xl:hidden">
+    <SocialLinks />
+  </div>
   {jobs.map((job) => (
     <p class="text-light-purple font-sans text-xl">
       <span class="block text-almost-white">{job.title}</span>

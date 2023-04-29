@@ -1,11 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SocialLinks from '../components/SocialLinks.astro';
 ---
 
 <Layout title="Simon Attfield" description="Homepage of simonattfield.com" canonical="https://www.simonattfield.com/">
-	<section class="">
+	<section>
     <h1 class="text-8xl font-display text-light-purple mb-10">Hello, <span class="text-almost-white block">I'm Simon</span></h1>
     <p class="text-light-purple text-3xl mb-10 font-sans">A front end web developer based in the D.C. Metro&nbsp;area.</p>
+    <div class="xl:hidden">
+      <SocialLinks />
+    </div>
     <p class="text-light-purple text-xl font-sans font-light leading-8">
       Proficient in Typescript/Javascript, Web Components, HTML/CSS, AngularJS, Nuxt/Vue,
       and most recently Next.JS with headless Wordpress and Tailwind CSS (and let's not forget
@@ -27,5 +31,4 @@ import Layout from '../layouts/Layout.astro';
       confident, outgoing, enthusiastic and approachable attitude.
     </p>
   </section>
-
 </Layout>

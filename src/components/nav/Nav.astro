@@ -38,7 +38,9 @@ const navTextAnimatedClasses = ['opacity-0', 'translate-y-4', 'scale-50'];
       <p class:list={['text-light-purple', 'font-sans', 'text-xl', 'transition-all', 'duration-300', 'absolute', 'inset-x-0', 'top-20', 'text-center', navTextAnimatedClasses]}>{item.text}</p>
     ))}
   </nav-text>
-  <SocialLinks />
+  <div class="hidden xl:block contact-links">
+    <SocialLinks />
+  </div>
 </nav>
 
 <style is:global>
