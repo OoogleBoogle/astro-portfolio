@@ -1,0 +1,19 @@
+import { Picture } from "astro-imagetools/components";
+import ProjectHeading from '../ProjectHeading.astro'
+
+<ProjectHeading text="SiaXperience" destination="https://www.siaxperience.com/" />
+
+<Picture src="/images/sia.jpeg" alt="Screenshot of the SiaExperience homepage" />
+
+The corporate site for the creative arm of the consulting firm [Sia
+Partners](https://www.sia-partners.com/). The brief was to take the website of
+the recently aquired, and well established, ad agency
+[Addison](https://addison.com/) and use it to showcase the additional input from
+SiaX.
+
+Addison's site is a standard WordPress site, and we wanted to keep all the good
+things about WordPress as a CMS but modernize it. Therefore, using Faust.js, I was
+able seperate the front end and build the site in Next.JS using GraphQL
+to query WordPress as a headless CMS. This helps us to improve security by
+hiding most references to WordPress, and also increase page speed by utilizing
+Next/Vercel's ISR functionality.
