@@ -19,8 +19,8 @@
     "@swup/slide-theme": "^1.0.5",
     "@vercel/analytics": "^1.0.0",
     "astro": "^2.3.0",
-    "astro-compress": "^1.1.42",
-    "astro-imagetools": "^0.8.1",
+    "astro-compress": "^2.0.14",
+    "astro-imagetools": "^0.2.7",
     "sass": "^1.62.0",
     "swup": "^3.0.6",
     "tailwindcss": "^3.3.1"
