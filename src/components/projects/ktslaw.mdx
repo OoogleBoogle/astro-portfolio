@@ -1,0 +1,33 @@
+import { Picture } from "astro-imagetools/components";
+import ProjectHeading from '../ProjectHeading.astro'
+
+<ProjectHeading text="Kilpatrick Law" destination="https://ktslaw.com/" />
+
+<Picture src="/images/ktslaw.png" alt="Screenshot of the Kilpatrick homepage hero section" placeholder="none" />
+
+As part of Kilpatrick Townsend's global rebrand, I was tasked with updating
+existing the pages to align with the new brand stratergy, as well as creating a
+new Home and About Us pages that would integrate with their existing tech stack.
+
+The site was originally built a long time ago by an external development team
+using SiteCore, and had in excess of 6000 pages and a lot of code to handle
+them. I felt it was important that my additions to the codebase be as light as
+possible while not increasing complexity.
+
+For the new pages I devised a method utilizing Web Components to handle all the
+page interactivity. This meant I was able to keep the code compartmentalized
+where necessary and avoided bloating the global JS. It also enabled me to hand
+over small components to the internal dev team to implement on their production
+server with nothing more than a copy and paste. I posted a brief introduction
+to statically rendered web components on medium based on this work.
+<a href="https://medium.com/@simattfield/custom-elements-and-the-sites-of-yore-247c946d840a"
+target="_blank">You can read the article here.</a>
+
+For the refresh of the existing pages, while working alongside Kilpatrick's
+internal developers, it was a case of digging through a monolithic CSS file and
+updating various base styles to bring them up to date with the new branding,
+tweaking existing jQuery code to iron out a few longstanding bugs,
+all while removing as much dead code as possible.
+
+Overall the project went much smoother than we anticipated and was completed
+ahead of schedule.
